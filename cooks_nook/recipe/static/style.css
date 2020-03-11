@@ -1,0 +1,51 @@
+body {
+    background-color:#f7fff7;
+}
+
+h1, h2 {
+    color:#003DE6;
+    font-family: 'Permanent Marker', cursive;
+}
+
+h1 {
+    font-size: 2.25em;
+}
+
+h2 {
+    font-size: 1.625em;
+}
+
+ul, p, aside, footer {
+    color:#030707;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 0.7500em;
+    font-size: 1.000em;
+}
+
+ul, p, aside, footer, nav li{
+    padding: 0.3125em;
+}
+
+nav ul{
+    list-style-type: none;
+    position: sticky;
+}
+
+nav li{
+    display: inline;
+    font-family: 'Permanent Marker', cursive;
+}
+
+nav li a, aside a{
+    color:#030707;
+    background-color: #ffe66d;
+    border: 0.125em solid #030707;
+    text-decoration: none;
+    padding: 0.7500em;
+    border-radius: 0.3125em;
+    font-family: 'Permanent Marker', cursive;
+}
+
+nav li a:hover, aside a:hover{
+    background-color:#759AFF;
+}
