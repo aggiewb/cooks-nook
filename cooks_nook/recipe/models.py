@@ -2,9 +2,24 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Recipe(models.Model):
+    MEAT = 'Meat'
+    SEAFOOD = 'Seafood'
+    VEGGIE = 'Veggie'
+    CATAGORY_CHOICES=[
+        (MEAT, 'Meat'),
+        (SEAFOOD, 'Seafood'),
+        (VEGGIE, 'Veggie')
+    ]
+    name=models.CharField(max_length=60)
+    catagory=models.CharField(max_length=7, choices=CATAGORY_CHOICES, default=MEAT)
+    ingredients=ArrayField(models.CharField(max_length=20))
+    prep=models.TextField()
+    servings=models.SmallIntegerField()
+    totalTime=models.SmallIntegerField()
+    user=models.ForeignKey(User, on_delete=models.DO_NOTHING)
 
     def __str__(self):
-        return
+        return self.name
 
 class Review(models.Model):
 
