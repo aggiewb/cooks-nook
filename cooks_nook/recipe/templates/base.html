@@ -1,15 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
     <head>
         <title>Cooks Nook</title>
-        <link rel="stylesheet" href="style.css">
-        <link href=""> <!--fonts to add-->
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Raleway&display=swap" rel="stylesheet">
     </head>
     <body>
         <h1>Cook's Nook</h1>
         <nav>
             <ul>
                 <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="">Meat</a></li>
+                <li><a href="">Seafood</a></li>
+                <li><a href="">Veggie</a></li>
             </ul>
         </nav>
         <div>
