@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Recipe, Review
 
 def index(request):
@@ -15,4 +15,14 @@ def meatRecipeView(request):
 def seafoodRecipeView(request):
     seafoodRecipeList=Recipe.objects.filter(catagory='Seafood')
     return render(request, 'recipe/seafood.html', {'seafoodRecipeList': seafoodRecipeList})
+
+def recipeDetails(request, id):
+    recipe=get_object_or_404(Recipe, pk=id)
+    reviews=Review.objects.filter(recipe=id)
+    context={
+        'recipe': recipe,
+        'reviews': reviews,
+    }
+    return render(request, 'recipe/details.html', context=context)
+
 
