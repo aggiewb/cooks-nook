@@ -24,5 +24,3 @@ def recipeDetails(request, id):
         'reviews': reviews,
     }
     return render(request, 'recipe/details.html', context=context)
-
-
