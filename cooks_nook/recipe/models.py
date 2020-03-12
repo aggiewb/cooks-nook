@@ -36,7 +36,7 @@ class Review(models.Model):
         (AVERAGE, 'Average'),
         (POOR, 'Poor'),
     ]
-
+    
     title = models.CharField(max_length=60)
     rating=models.CharField(max_length=7, choices=RATING_CHOICES, default=GREAT)
     comments=models.TextField()
