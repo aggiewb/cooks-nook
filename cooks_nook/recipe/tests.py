@@ -10,10 +10,10 @@ class RecipeTest(TestCase):
         self.assertEqual(str(Recipe._meta.db_table), 'recipe')
 
 class ReviewTest(TestCase):
-     def test_string(self):
-        review=Review(name='Top Notch!')
-        self.assertEqual(str(review), review.name)
-
+    def test_string(self):
+        review=Review(title='Top Notch!')
+        self.assertEqual(str(review), review.title)
+        
     def test_table(self):
         self.assertEqual(str(Review._meta.db_table), 'review')
 
