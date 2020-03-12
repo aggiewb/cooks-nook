@@ -1,5 +1,7 @@
 from django.test import TestCase
 from .models import Recipe, Review, User
+from django.urls import reverse
+from .views import index, veggieRecipeView, meatRecipeView, seafoodRecipeView, recipeDetails
 
 class RecipeTest(TestCase):
     def test_string(self):
@@ -61,4 +63,35 @@ class ReviewTest(TestCase):
     def test_user(self):
         self.assertTrue(self.review.user.exists())
 
+class IndexTest(TestCase):
+    def test_view_url_accessible_by_name(self):
+        response=self.client.get(reverse('index'))
+        self.assertEqual(response.status_code, 200)
+
+class VeggieViewTest(TestCase):
+    def test_view_url_accessible_by_name(self):
+        response=self.client.get(reverse('veggie'))
+        self.assertEqual(response.status_code, 200)
+
+class MeatViewTest(TestCase):
+    def test_view_url_accessible_by_name(self):
+        response=self.client.get(reverse('meat'))
+        self.assertEqual(response.status_code, 200)
+
+class SeafoodViewTest(TestCase):
+    def test_view_url_accessible_by_name(self):
+        response=self.client.get(reverse('seafood'))
+        self.assertEqual(response.status_code, 200)
+
+class RecipeDetailsViewTest(TestCase):
+    def setUp(self):
+        self.userRecipe=User.objects.create(username='Steven')
+        self.recipe = Recipe.objects.create(name = 'Meatloaf', catagory = 'Meat', ingredients = ['Beef', 'Onion', 'Egg', 'Milk'], prep = 'Mix items together. Bake at 350 degrees for 45 minutes.', servings = 5, totalTime = 60, user = self.userRecipe)
+        self.userReview = User.objects.create(username = 'Max')
+        self.review = Review.objects.create(title = 'Family Friendly', rating = 'Great', comments='Quick and easy meal that I created in less than 30 min', recipe = self.recipe)
+        self.review.user.add(self.userReview)
+
+    def test_meeting_details_success(self):
+        response=self.client.get(reverse('recipeDetails', args=(self.recipe.id,)))
+        self.assertEqual(response.status_code, 200)
 
