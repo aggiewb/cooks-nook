@@ -25,6 +25,7 @@ class Recipe(models.Model):
 
     class Meta:
         db_table = 'recipe'
+        verbose_name = 'recipes'
 
 class Review(models.Model):
     GREAT = 'Great'
@@ -46,3 +47,4 @@ class Review(models.Model):
 
     class Meta:
         db_table = 'review'
+        verbose_name = 'reviews'
