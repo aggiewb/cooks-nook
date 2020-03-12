@@ -16,8 +16,12 @@ h2, table {
 }
 
 th{
-    padding: 0.938em;
     border: 0.125em dotted #030707;
+}
+
+td{
+    width: 40%;
+    text-align: center;
 }
 
 ul, p, aside, footer, td {
@@ -27,13 +31,12 @@ ul, p, aside, footer, td {
     font-size: 1.000em;
 }
 
-ul, p, aside, footer, nav li{
+nav ul, p, aside, footer, nav li{
     padding: 0.3125em;
 }
 
 nav ul{
     list-style-type: none;
-    position: sticky;
 }
 
 nav li{
