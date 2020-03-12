@@ -8,3 +8,12 @@ class RecipeTest(TestCase):
 
     def test_table(self):
         self.assertEqual(str(Recipe._meta.db_table), 'recipe')
+
+class ReviewTest(TestCase):
+     def test_string(self):
+        review=Review(name='Top Notch!')
+        self.assertEqual(str(review), review.name)
+
+    def test_table(self):
+        self.assertEqual(str(Review._meta.db_table), 'review')
+
