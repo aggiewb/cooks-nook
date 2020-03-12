@@ -2,16 +2,16 @@ from django.test import TestCase
 from .models import Recipe, Review, User
 
 class RecipeTest(TestCase):
-    def setUp(self):
-        self.user=User.objects.create(username='Max')
-        self.recipe = Recipe(name = 'Meatloaf', catagory = 'Meat', ingredients = ['Beef', 'Onion', 'Egg', 'Milk'], prep = 'Mix items together. Bake at 350 degrees for 45 minutes.', servings = 5, totalTime = 60, user = self.user)
-
     def test_string(self):
         recipe=Recipe(name='Fried Chicken')
         self.assertEqual(str(recipe), recipe.name)
 
     def test_table(self):
         self.assertEqual(str(Recipe._meta.db_table), 'recipe')
+    
+    def setUp(self):
+        self.user=User.objects.create(username='Max')
+        self.recipe = Recipe(name = 'Meatloaf', catagory = 'Meat', ingredients = ['Beef', 'Onion', 'Egg', 'Milk'], prep = 'Mix items together. Bake at 350 degrees for 45 minutes.', servings = 5, totalTime = 60, user = self.user)
     
     def test_string_prep(self):
         recipePrep=self.recipe.prep
