@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Seafood Recipes</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Total Time(in minutes)</th>
+    </tr>
+    {% for recipe in seafoodRecipeList %}
+    <tr>
+        <td><a href="{% url 'recipeDetails' id=recipe.id %}">{{ recipe.name }}</a></td>
+        <td>{{ recipe.totalTime }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
