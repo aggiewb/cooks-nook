@@ -7,4 +7,4 @@ class RecipeTest(TestCase):
         self.assertEqual(str(recipe), recipe.name)
 
     def test_table(self):
-        self.assertEqual(str(Recipe.meta.db_table), 'recipe')
+        self.assertEqual(str(Recipe.Meta.db_table), 'recipe')
