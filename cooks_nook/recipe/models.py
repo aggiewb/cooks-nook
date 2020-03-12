@@ -25,6 +25,7 @@ class Recipe(models.Model):
 
     class Meta:
         db_table = 'recipe'
+        verbose_name = 'recipes'
 
 class Review(models.Model):
     GREAT = 'Great'
@@ -40,9 +41,11 @@ class Review(models.Model):
     rating=models.CharField(max_length=7, choices=RATING_CHOICES, default=GREAT)
     comments=models.TextField()
     user=models.ManyToManyField(User)
+    recipe=models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
 
     class Meta:
         db_table = 'review'
+        verbose_name = 'reviews'
