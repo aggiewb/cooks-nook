@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Meat Recipes</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Total Time(in minutes)</th>
+    </tr>
+    {% for recipe in meatRecipeList %}
+    <tr>
+        <td>{{ recipe.name }}</td>
+        <td>{{ recipe.totalTime }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
