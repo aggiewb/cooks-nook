@@ -2,6 +2,7 @@ from django.test import TestCase
 from .models import Recipe, Review, User
 from django.urls import reverse
 from .views import index, veggieRecipeView, meatRecipeView, seafoodRecipeView, recipeDetails
+from .forms import RecipeForm
 
 class RecipeTest(TestCase):
     def test_string(self):
@@ -93,3 +94,16 @@ class RecipeDetailsViewTest(TestCase):
     def test_meeting_details_success(self):
         response=self.client.get(reverse('recipeDetails', args=(self.recipe.id,)))
         self.assertEqual(response.status_code, 200)
+
+class RecipeFormTest(TestCase):
+    def setUp(self):
+        self.userRecipe = User.objects.create(username='Steven')
+
+    def test_typeform_is_valid(self):
+        form=RecipeForm(data={'name': 'Meatloaf', 'catagory': 'Meat', 'ingredients': ['Beef', 'Onion', 'Egg', 'Milk'], 'prep': 'Mix items together. Bake at 350 degrees for 45 minutes.', 'servings': 5, 'totalTime': 60, 'user': self.userRecipe})
+        self.assertTrue(form.is_valid())
+    
+    def test_typeform_empty(self):
+        form=RecipeForm(data={'name': '', 'catagory': 'Meat', 'ingredients': [], 'prep': '', 'servings': None, 'totalTime': None, 'user': ''})
+        self.assertFalse(form.is_valid())
+    
