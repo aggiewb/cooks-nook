@@ -2,7 +2,7 @@ body {
     background-color:#f7fff7;
 }
 
-h1, h2, #NewRecipeForm th{
+h1, h2, #NewForm th{
     color:#003DE6; 
     font-family: 'Love Ya Like A Sister', cursive;
 }
@@ -43,7 +43,7 @@ nav li{
     font-family: 'Love Ya Like A Sister', cursive;
 }
 
-nav li a, aside a, #submit{
+nav li a, aside a, #submit, #addreview{
     color:#030707;
     background-color: #ffe66d;
     border: 0.125em dotted #030707; /* 2px */
@@ -53,7 +53,7 @@ nav li a, aside a, #submit{
     font-family: 'Love Ya Like A Sister', cursive;
 }
 
-nav li a:hover, aside a:hover, #submit:hover{
+nav li a:hover, aside a:hover, #submit:hover, #addreview:hover{
     background-color:#759AFF;
 }
 
@@ -61,11 +61,11 @@ nav li a:hover, aside a:hover, #submit:hover{
     margin-top: 1.000em; /* 16px */
 }
 
-#NewRecipeForm table, td, p{
+#NewForm table, td, p{
     width: 40%;
 }
 
-#NewRecipeForm table th, #NewRecipeForm table td{
+#NewForm table th, #NewForm table td{
     border: none;
     text-align: left;
 }
