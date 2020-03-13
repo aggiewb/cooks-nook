@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Recipe, Review, User
-from .forms import RecipeForm
+from .forms import RecipeForm, ReviewForm
 
 def index(request):
     return render(request, 'recipe/index.html')
@@ -36,3 +36,14 @@ def newRecipe(request):
             form=RecipeForm()
     else:form=RecipeForm()
     return render(request, 'recipe/new_recipe.html', {'form': form})
+
+def newReview(request):
+    form=ReviewForm()
+    if request.method=='POST':
+        form=ReviewForm(request.POST)
+        if form.is_valid():
+            post=form.save(commit=True)
+            post.save()
+            form=ReviewForm()
+    else:form=ReviewForm()
+    return render(request, 'recipe/new_review.html', {'form': form})
