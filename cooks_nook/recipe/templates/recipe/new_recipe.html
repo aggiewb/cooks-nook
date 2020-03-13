@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Add Recipe</h2>
-<form method="POST" id="NewRecipeForm">
+<form method="POST" id="NewForm">
     <table>
         {% csrf_token %}
         {{ form.as_table }}
