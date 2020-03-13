@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Recipe, Review
+from .models import Recipe, Review, User
 
 def index(request):
     return render(request, 'recipe/index.html')
@@ -24,5 +24,3 @@ def recipeDetails(request, id):
         'reviews': reviews,
     }
     return render(request, 'recipe/details.html', context=context)
-
-

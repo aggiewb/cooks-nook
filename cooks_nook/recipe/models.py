@@ -36,11 +36,11 @@ class Review(models.Model):
         (AVERAGE, 'Average'),
         (POOR, 'Poor'),
     ]
-
+    
     title = models.CharField(max_length=60)
     rating=models.CharField(max_length=7, choices=RATING_CHOICES, default=GREAT)
     comments=models.TextField()
-    user=models.ManyToManyField(User)
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
     recipe=models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
     def __str__(self):

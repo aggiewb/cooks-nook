@@ -46,11 +46,10 @@ class ReviewTest(TestCase):
         self.assertEqual(str(Review._meta.db_table), 'review')
     
     def setUp(self):
-        self.userRecipe=User.objects.create(username='Steven')
+        self.userRecipe = User.objects.create(username='Steven')
         self.recipe = Recipe.objects.create(name = 'Meatloaf', catagory = 'Meat', ingredients = ['Beef', 'Onion', 'Egg', 'Milk'], prep = 'Mix items together. Bake at 350 degrees for 45 minutes.', servings = 5, totalTime = 60, user = self.userRecipe)
-        self.userReview = User.objects.create(username = 'Max')
-        self.review = Review.objects.create(title = 'Family Friendly', rating = 'Great', comments='Quick and easy meal that I created in less than 30 min', recipe = self.recipe)
-        self.review.user.add(self.userReview)
+        self.userReview = User.objects.create(username='Max')
+        self.review = Review.objects.create(title = 'Family Friendly', rating = 'Great', comments='Quick and easy meal that I created in less than 30 min', recipe = self.recipe, user = self.userReview)
  
     def test_string_comment(self):
         reviewComment = self.review.comments
@@ -60,8 +59,9 @@ class ReviewTest(TestCase):
         reviewRating = self.review.rating
         self.assertEqual(str(reviewRating), 'Great')
 
-    def test_user(self):
-        self.assertTrue(self.review.user.exists())
+    def test_string_user(self):
+        reviewUser = self.review.user
+        self.assertEqual(str(reviewUser), 'Max')
 
 class IndexTest(TestCase):
     def test_view_url_accessible_by_name(self):
@@ -85,13 +85,11 @@ class SeafoodViewTest(TestCase):
 
 class RecipeDetailsViewTest(TestCase):
     def setUp(self):
-        self.userRecipe=User.objects.create(username='Steven')
+        self.userRecipe = User.objects.create(username='Steven')
         self.recipe = Recipe.objects.create(name = 'Meatloaf', catagory = 'Meat', ingredients = ['Beef', 'Onion', 'Egg', 'Milk'], prep = 'Mix items together. Bake at 350 degrees for 45 minutes.', servings = 5, totalTime = 60, user = self.userRecipe)
-        self.userReview = User.objects.create(username = 'Max')
-        self.review = Review.objects.create(title = 'Family Friendly', rating = 'Great', comments='Quick and easy meal that I created in less than 30 min', recipe = self.recipe)
-        self.review.user.add(self.userReview)
+        self.userReview = User.objects.create(username='Max')
+        self.review = Review.objects.create(title = 'Family Friendly', rating = 'Great', comments='Quick and easy meal that I created in less than 30 min', recipe = self.recipe, user = self.userReview)
 
     def test_meeting_details_success(self):
         response=self.client.get(reverse('recipeDetails', args=(self.recipe.id,)))
         self.assertEqual(response.status_code, 200)
-
