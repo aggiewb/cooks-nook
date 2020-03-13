@@ -27,7 +27,6 @@ def recipeDetails(request, id):
     return render(request, 'recipe/details.html', context=context)
 
 def newRecipe(request):
-    form=RecipeForm()
     if request.method=='POST':
         form=RecipeForm(request.POST)
         if form.is_valid():
@@ -38,7 +37,6 @@ def newRecipe(request):
     return render(request, 'recipe/new_recipe.html', {'form': form})
 
 def newReview(request):
-    form=ReviewForm()
     if request.method=='POST':
         form=ReviewForm(request.POST)
         if form.is_valid():
