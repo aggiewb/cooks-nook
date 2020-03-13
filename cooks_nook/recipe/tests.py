@@ -2,7 +2,7 @@ from django.test import TestCase
 from .models import Recipe, Review, User
 from django.urls import reverse
 from .views import index, veggieRecipeView, meatRecipeView, seafoodRecipeView, recipeDetails
-from .forms import RecipeForm
+from .forms import RecipeForm, ReviewForm
 
 class RecipeTest(TestCase):
     def test_string(self):
@@ -105,5 +105,19 @@ class RecipeFormTest(TestCase):
     
     def test_typeform_empty(self):
         form=RecipeForm(data={'name': '', 'catagory': 'Meat', 'ingredients': [], 'prep': '', 'servings': None, 'totalTime': None, 'user': ''})
+        self.assertFalse(form.is_valid())
+
+class ReviewFormTest(TestCase):
+    def setUp(self):
+        self.userRecipe = User.objects.create(username='Steven')
+        self.userReview = User.objects.create(username='Max')
+        self.recipe = Recipe.objects.create(name = 'Meatloaf', catagory = 'Meat', ingredients = ['Beef', 'Onion', 'Egg', 'Milk'], prep = 'Mix items together. Bake at 350 degrees for 45 minutes.', servings = 5, totalTime = 60, user = self.userRecipe)
+
+    def test_typeform_is_valid(self):
+        form=ReviewForm(data={'title': 'Family Friendly', 'rating': 'Great', 'comments':'Quick and easy meal that I created in less than 30 min', 'recipe': self.recipe, 'user': self.userReview})
+        self.assertTrue(form.is_valid())
+    
+    def test_typeform_empty(self):
+        form=ReviewForm(data={'title': '', 'rating': '', 'comments':'', 'recipe': '', 'user': ''})
         self.assertFalse(form.is_valid())
     
