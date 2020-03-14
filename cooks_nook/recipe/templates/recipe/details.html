@@ -12,7 +12,7 @@
 <p>Total Time(in minutes): {{ recipe.totalTime }}</p>
 <p>Created by: {{ recipe.user }}</p>
 <h1>Reviews</h1>
-<li><a id="addreview" href="{% url 'new_review' %}">Add review</a></li>
+<li><a class="add_review" href="{% url 'new_review' %}">Add review</a></li>
 {% for review in reviews %}
 <h2>{{ review.title }}</h2>
 <p>Rating: {{ review.rating }}</p>

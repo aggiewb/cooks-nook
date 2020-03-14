@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Add Review</h2>
-<form method="POST" id="NewForm">
+<form method="POST" class="new_form">
     <table>
         {% csrf_token %}
         {{ form.as_table }}
     </table>
-    <input type="submit" value="Submit" id="submit">
+    <input type="submit" value="Submit" class="submit">
 </form>
 {% endblock %}
