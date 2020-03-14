@@ -45,3 +45,9 @@ def newReview(request):
             form=ReviewForm()
     else:form=ReviewForm()
     return render(request, 'recipe/new_review.html', {'form': form})
+
+def loginView(request):
+    return render(request, 'recipe/login.html')
+
+def logoutView(request):
+    return render(request, 'recipe/logout.html')
