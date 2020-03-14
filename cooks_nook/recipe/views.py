@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Recipe, Review, User
 from .forms import RecipeForm, ReviewForm
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request, 'recipe/index.html')
@@ -26,6 +27,7 @@ def recipeDetails(request, id):
     }
     return render(request, 'recipe/details.html', context=context)
 
+@login_required
 def newRecipe(request):
     if request.method=='POST':
         form=RecipeForm(request.POST)
@@ -36,6 +38,7 @@ def newRecipe(request):
     else:form=RecipeForm()
     return render(request, 'recipe/new_recipe.html', {'form': form})
 
+@login_required
 def newReview(request):
     if request.method=='POST':
         form=ReviewForm(request.POST)
@@ -45,3 +48,9 @@ def newReview(request):
             form=ReviewForm()
     else:form=ReviewForm()
     return render(request, 'recipe/new_review.html', {'form': form})
+
+def loginView(request):
+    return render(request, 'recipe/login_success.html')
+
+def logoutView(request):
+    return render(request, 'recipe/logout_success.html')

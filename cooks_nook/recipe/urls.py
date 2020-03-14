@@ -8,5 +8,7 @@ urlpatterns=[
     path('seafood/', views.seafoodRecipeView, name='seafood'),
     path('details/<int:id>', views.recipeDetails, name='recipeDetails'),
     path('newrecipe/', views.newRecipe, name='new_recipe'),
-    path('newreview/', views.newReview, name='new_review')
+    path('newreview/', views.newReview, name='new_review'),
+    path('login/', views.loginView, name='login_success'),
+    path('logout/', views.logoutView, name='logout_success'),
 ]

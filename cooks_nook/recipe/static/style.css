@@ -26,17 +26,22 @@ td{
 ul, p, aside, footer, td {
     color:#030707;
     font-family: 'Open Sans', sans-serif;
-    margin-top: 0.75em; /* 12px */
     font-size: 1em; /* 16px */
 }
 
-nav ul, p, aside, footer, nav li, .submit{
-    padding: 0.3125em; /* 5px */
+ul, p, footer, td {
+    margin-top: 1em; /* 12px */
+}
+
+aside{
+    margin: 2em 0em; /* 14px */
 }
 
 nav ul{
     list-style-type: none;
+    padding: 0;
 }
+
 
 nav li{
     display: inline;
@@ -51,18 +56,15 @@ nav li a, aside a, .submit, .add_review{
     padding: 0.75em; /* 12px */
     border-radius: 0.3125em; /* 5px */
     font-family: 'Love Ya Like A Sister', cursive;
+    margin: 1em 0em;
 }
 
 nav li a:hover, aside a:hover, .submit:hover, .add_review:hover{
     background-color:#759AFF;
 }
 
-.submit, h2{
-    margin-top: 1em; /* 16px */
-}
-
 .new_form table, td, p{
-    width: 40%;
+    width: 60%;
 }
 
 .new_form table th, .new_form table td{
