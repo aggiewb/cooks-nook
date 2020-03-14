@@ -120,4 +120,21 @@ class ReviewFormTest(TestCase):
     def test_typeform_empty(self):
         form=ReviewForm(data={'title': '', 'rating': '', 'comments':'', 'recipe': '', 'user': ''})
         self.assertFalse(form.is_valid())
+
+class NewRecipeAuthenticationTest(TestCase):
+    def setUp(self):
+        self.testUser=User.objects.create_user(username='Susan', password='P@ssw0rd1')
+        self.userRecipe = User.objects.create(username='Steven')
+        self.recipe = Recipe.objects.create(name = 'Meatloaf', catagory = 'Meat', ingredients = ['Beef', 'Onion', 'Egg', 'Milk'], prep = 'Mix items together. Bake at 350 degrees for 45 minutes.', servings = 5, totalTime = 60, user = self.userRecipe)
+
+    def test_redirect_if_not_logged_in(self):
+        response=self.client.get(reverse('new_recipe'))
+        self.assertRedirects(response, '/accounts/login/?next=/recipe/newrecipe/')
+
+    def test_logged_in_uses_correct_template(self):
+        login=self.client.login(username='Susan', password='P@ssw0rd1')
+        response=self.client.get(reverse('new_recipe'))
+        self.assertEqual(str(response.context['user']), 'Susan')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'recipe/new_recipe.html')
     
