@@ -47,7 +47,7 @@ def newReview(request):
     return render(request, 'recipe/new_review.html', {'form': form})
 
 def loginView(request):
-    return render(request, 'recipe/login.html')
+    return render(request, 'recipe/login_success.html')
 
 def logoutView(request):
-    return render(request, 'recipe/logout.html')
+    return render(request, 'recipe/logout_success.html')
