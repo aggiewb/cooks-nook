@@ -2,7 +2,7 @@ body {
     background-color:#f7fff7;
 }
 
-h1, h2, #NewForm th{
+h1, h2, .new_form th{
     color:#003DE6; 
     font-family: 'Love Ya Like A Sister', cursive;
 }
@@ -11,7 +11,7 @@ h1 {
     font-size: 2.25em; /* 36px */
 }
 
-h2, table, #submit{
+h2, table, .submit{
     font-size: 1.625em; /* 26px */
 }
 
@@ -26,11 +26,11 @@ td{
 ul, p, aside, footer, td {
     color:#030707;
     font-family: 'Open Sans', sans-serif;
-    margin-top: 0.7500em; /* 12px */
-    font-size: 1.000em; /* 16px */
+    margin-top: 0.75em; /* 12px */
+    font-size: 1em; /* 16px */
 }
 
-nav ul, p, aside, footer, nav li, #submit{
+nav ul, p, aside, footer, nav li, .submit{
     padding: 0.3125em; /* 5px */
 }
 
@@ -43,29 +43,29 @@ nav li{
     font-family: 'Love Ya Like A Sister', cursive;
 }
 
-nav li a, aside a, #submit, #addreview{
+nav li a, aside a, .submit, .add_review{
     color:#030707;
     background-color: #ffe66d;
     border: 0.125em dotted #030707; /* 2px */
     text-decoration: none;
-    padding: 0.7500em; /* 12px */
+    padding: 0.75em; /* 12px */
     border-radius: 0.3125em; /* 5px */
     font-family: 'Love Ya Like A Sister', cursive;
 }
 
-nav li a:hover, aside a:hover, #submit:hover, #addreview:hover{
+nav li a:hover, aside a:hover, .submit:hover, .add_review:hover{
     background-color:#759AFF;
 }
 
-#submit, h2{
-    margin-top: 1.000em; /* 16px */
+.submit, h2{
+    margin-top: 1em; /* 16px */
 }
 
-#NewForm table, td, p{
+.new_form table, td, p{
     width: 40%;
 }
 
-#NewForm table th, #NewForm table td{
+.new_form table th, .new_form table td{
     border: none;
     text-align: left;
 }
