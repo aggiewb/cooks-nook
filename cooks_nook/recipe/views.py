@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Recipe, Review, User
 from .forms import RecipeForm, ReviewForm
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request, 'recipe/index.html')
