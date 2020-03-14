@@ -31,11 +31,12 @@ ul, p, aside, footer, td {
 }
 
 nav ul, p, aside, footer, nav li, .submit{
-    padding: 0.3125em; /* 5px */
+    padding-top: 0.3125em; /* 5px */
 }
 
 nav ul{
     list-style-type: none;
+    padding: 0;
 }
 
 nav li{
@@ -62,7 +63,7 @@ nav li a:hover, aside a:hover, .submit:hover, .add_review:hover{
 }
 
 .new_form table, td, p{
-    width: 40%;
+    width: 60%;
 }
 
 .new_form table th, .new_form table td{
