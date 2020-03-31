@@ -1,0 +1,1 @@
+web: gunicorn cooks_nook.wsgi --log-file -
