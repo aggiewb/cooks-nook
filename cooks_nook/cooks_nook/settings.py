@@ -83,11 +83,6 @@ WSGI_APPLICATION = 'cooks_nook.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER' : os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST' : os.environ.get('DB_HOST'),
-        'PORT' :'',
     }
 }
 
@@ -140,4 +135,3 @@ LOGOUT_REDIRECT_URL='logout_success'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-
