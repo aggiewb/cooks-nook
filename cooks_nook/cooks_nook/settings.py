@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import os, dj_database_url
+import os, dj_database_urlm django_heroku
 from decouple import config
 
 
@@ -137,3 +137,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'project_name/static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL='login_success'
 LOGOUT_REDIRECT_URL='logout_success'
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
+
