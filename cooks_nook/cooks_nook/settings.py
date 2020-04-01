@@ -134,5 +134,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL='login_success'
 LOGOUT_REDIRECT_URL='logout_success'
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
+
