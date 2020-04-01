@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os, dj_database_url, django_heroku
 from decouple import config
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of ffe9baa... Import heroku module, and settings command
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -133,5 +136,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'project_name/static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL='login_success'
 LOGOUT_REDIRECT_URL='logout_success'
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of ffe9baa... Import heroku module, and settings command
